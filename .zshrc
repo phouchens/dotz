@@ -170,27 +170,9 @@ alias ls="command ls ${colorflag}"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 
-export PATH="$PATH:/usr/local/Cellar/mongodb-community@4.4/4.4.13/bin"
-export NVM_DIR=~/.nvm
-  source $(brew --prefix nvm)/nvm.sh
-
-# brew
-export PATH="/usr/local/sbin:$PATH"
-
-# yarn
-export NODE_PATH="$(yarn global dir)/node_modules"
-
-# nvm auto load
-export NVM_DIR="/Users/andrew.liu/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-
 
 export PATH="/Users/perryhouchens/.local/bin/:$PATH"
 export SSH_KEY_PATH="~/.ssh/rsa_id"
-
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/perryhouchens/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
 ### lazygit
 lg()
