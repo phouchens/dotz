@@ -184,12 +184,9 @@ export NODE_PATH="$(yarn global dir)/node_modules"
 export NVM_DIR="/Users/andrew.liu/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
-# Unqork CodeArtifact
-export VAULT_ADDR=https://vault.tools.unqork.io
 
 export PATH="/Users/perryhouchens/.local/bin/:$PATH"
-export VAULT_ADDR="https://vault.tools.unqork.io"
-
+export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/perryhouchens/.rd/bin:$PATH"
