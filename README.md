@@ -12,3 +12,61 @@ My dotfiles
 ```
   vim /etc/sudoers
 ```
+
+sudo apt-get update
+sudo apt-get install tmux -y
+tmux
+sudo apt install zsh -y
+echo "\# default" > .zshrc
+echo $(zsh --version)
+chsh -s /usr/bin/zsh
+sign out and sign back in (maybe a new tmux?)
+
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sudo apt-get install fonts-powerline -y
+
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
+git clone https://github.com/phouchens/dotz.git
+
+cd dotz
+
+. ./setup.sh
+
+source .zshrc
+
+sudo apt install curl -y
+curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash 
+source ~/.zshrc
+
+nvm --version
+nvm install node
+ sudo apt install lua5.3 -y
+
+sudo apt install software-properties-common -y
+sudo add-apt-repository ppa:neovim-ppa/stable -y
+sudo add-apt-repository ppa:neovim-ppa/unstable -y
+sudo apt-get update
+sudo apt install neovim -y
+mkdir .config
+chmod 755 .config
+cd .config
+git clone https://github.com/phouchens/hVim.git nvim
+
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+ ~/.loca:xl/share/nvim/site/pack/packer/start/packer.nvimzaaz
+ Z
+ sudo apt install apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+apt-cache policy docker-ce
+
+sudo apt install docker-ce -y
+
+sudo systemctl status docker
+
+sudo usermod -aG docker ${USER}
+su - ${USER}
+
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
