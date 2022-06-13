@@ -168,9 +168,8 @@ alias ls="command ls ${colorflag}"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-
-
+# kubctl completion
+source <(kubectl completion zsh)
 export PATH="/Users/perryhouchens/.local/bin/:$PATH"
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 

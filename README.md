@@ -13,6 +13,9 @@ My dotfiles
   vim /etc/sudoers
 ```
 
+```
+Basic setup on ubuntu
+
 sudo apt-get update
 sudo apt-get install tmux -y
 tmux
@@ -70,3 +73,50 @@ su - ${USER}
 
 sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
+
+
+
+// minikube
+sudo apt update
+sudo apt install apt-transport-https
+sudo apt upgrade
+
+//use kvm
+// note i couldnt get this to work right away... used the docker driver and it seemed to work
+sudo apt -y install qemu-kvm libvirt-dev bridge-utils libvirt-daemon-system libvirt-daemon virtinst bridge-utils libosinfo-bin libguestfs-tools virt-top
+sudo modprobe vhost_net
+sudo lsmod | grep vhost
+echo "vhost_net" | sudo tee -a /etc/modules
+
+//You need to download the minikube binary. I will put the binary under /usr/local/bin directory since it is inside $PATH.
+wget https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+chmod +x minikube-linux-amd64
+sudo mv minikube-linux-amd64 /usr/local/bin/minikube
+curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+// https://help.ubuntu.com/community/KVM/Installation  
+
+
+chmod +x kubectl
+sudo mv kubectl  /usr/local/bin/
+kubectl version -o json
+
+//insgall docker machine kvm driver
+curl -LO https://storage.googleapis.com/minikube/releases/latest/docker-machine-driver-kvm2
+chmod +x docker-machine-driver-kvm2
+sudo mv docker-machine-driver-kvm2 /usr/local/bin/
+
+//starting minikube
+//add user account to libvirt
+sudo usermod -aG libvirt $USER
+newgrp libvirt
+virt-host-validate
+//set kvm as driverZ
+minikube config set driver kvm2
+ minikube start 
+
+
+ // kubens
+ git clone https://github.com/ahmetb/kubectx
+ chmod +x kubectx/kubens
+ sudo mv kubectx/kubens /usr/local/bin
+```
